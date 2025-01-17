@@ -1,5 +1,5 @@
 # MonoAMNet: Three-Stage Real-Time Monocular 3D Object Detection With Adaptive Methods
-Code implementation of my paper [AMNet]([https://ieeexplore.ieee.org/abstract/document/10497146](https://ieeexplore.ieee.org/document/10843993]). The code is based on [mmdetection3d](https://github.com/open-mmlab/mmdetection3d).
+Code implementation of my paper [AMNet]([https://ieeexplore.ieee.org/document/10843993]). The code is based on [mmdetection3d](https://github.com/open-mmlab/mmdetection3d).
 ## Environment Installation
 
 ### Create a new conda environment
