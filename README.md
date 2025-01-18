@@ -85,6 +85,17 @@ Similar to mmdetection3d, train with the following command.
 ```shell
 python tools/train.py --config configs/amnet/threestage_dla34_kittimono3d.py
 ```
+## Model Validating
+Similar to mmdetection3d, validating with the following command. 
+```shell
+python tools/test.py configs/amnet/threestage_dla34_kittimono3d.py /usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_20.98/best_img_bbox/Moderate@0.7@Car@R40@AP3D_epoch_99.pth --eval bbox
+```
+## Model Testing
+Similar to mmdetection3d, testing with the following command. 
+```shell
+python tools/test.py configs/amnet/threestage_dla34_kittimono3d_trainval.py /mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_trainval/epoch_80.pth --format-only --eval-options 'submission_prefix=results/kitti-3class/kitti_results'
+```
+When the test is complete, a number of txt files of the results are generated in *results/kitti-3class/kitti_results*. Then compressed into a zip it can be uploaded to the official [kitti server](https://www.cvlibs.net/datasets/kitti/user_submit.php).
 ## Citation
 
 If you find this project useful in your research, please consider citing:
