@@ -91,7 +91,7 @@ Similar to mmdetection3d, validating with the following command.
 python tools/test.py configs/amnet/threestage_dla34_kittimono3d.py /usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_20.98/best_img_bbox/Moderate@0.7@Car@R40@AP3D_epoch_99.pth --eval bbox
 ```
 | Dataset |  AM      | DDAD15M | Flip Test   | Easy           | Mod.           | Hard           |  Config  |  Download  |
-|---------|----------|------|----------------|----------------|----------------|------|------|
+|---------|----------|------|----------------|----------------|----------------|------|------|------|
 | NuScenes |        |      |      |  11.23/19.08 | 8.42/14.78 | 7.46/13.17        | [config](configs/amnet/threestage_dla34_nusmono3d_2.py) | [model](https://drive.google.com/file/d/1EYKW0n-jJXOA3fnK41KPot6Dypno7SRX/view?usp=sharing) \| [log](https://drive.google.com/file/d/1vIGhBquIMzutLL8vZ064AJkCWvLZm2Kh/view?usp=sharing) |
 | NuScenes    | ✓     |     |     | 18.47/28.09 |  14.47/22.43  | 12.67/20.18     | [config](configs/amnet/threestage_dla34_nusmono3d.py) | [model](https://drive.google.com/file/d/1-A0llZuwLuW5GtLQWu98RCYM__bHauBA/view?usp=sharing) \| [log](https://drive.google.com/file/d/1nWb03d7Bc2HmLdbxF7Aoa914S3zx8EmQ/view?usp=sharing) |
 
