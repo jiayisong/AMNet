@@ -77,6 +77,14 @@ nuscenes
 ├── nuscenes_front_infos_train_mono3d.coco.json
 ├── nuscenes_front_infos_val.pkl
 ```
+## Pre-training Model Download
+[DLA34-DDAD15M](https://drive.google.com/file/d/1qxRunmEnAUojZL2Ys9NQGNVCBWTI6X8Z/view?usp=sharing) is the pre-trained weights converted from [DD3D](https://github.com/TRI-ML/dd3d).
+
+## Model Training
+Similar to mmdetection3d, train with the following command.
+```shell
+python tools/train.py --config configs/amnet/threestage_dla34_kittimono3d.py
+```
 ## Citation
 
 If you find this project useful in your research, please consider citing:
