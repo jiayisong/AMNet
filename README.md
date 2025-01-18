@@ -37,7 +37,7 @@ and
 
 The labeled files need to be converted, and for convenience I uploaded the converted files directly. It is [kitti_label.zip](https://drive.google.com/file/d/1B0v6gn00houqtYUqlSdpK2MQEZQQhqBT/view?usp=sharing).
 
-Unzip the image file and organize it and the label file as follows.
+Unzip and organize the image file and the label file as follows.
 ```
 kitti
 ├── testing
@@ -62,7 +62,21 @@ kitti
 ### NuScenes
 Download images from the [NuScenes](https://www.nuscenes.org/nuscenes#download).
 
-In our experiment, we used images from the FRONT CAMERA, and we provided the corresponding labels for the forward-facing camera. It is [nuscenes_label.zip](https://drive.google.com/file/d/13tcu7hKZ9gMti-Jkb3hrTMbxrVw01753/view?usp=sharing)
+In our experiment, we used images from the FRONT CAMERA, and we provided the corresponding labels. It is [nuscenes_front_label.zip](https://drive.google.com/file/d/1fxlNI5PSC4vKHRSV5i-wQVA93Jrtacbi/view?usp=sharing).
+
+Unzip and organize the image file and the label file as follows.
+```
+nuscenes
+├── samples
+│   ├── CAM_FRONT
+|   |   ├──n008-2018-09-18-12-07-26-0400__CAM_FRONT__1537286917912410.jpg
+|   |   ├──n008-2018-09-18-12-07-26-0400__CAM_FRONT__1537286920412417.jpg
+|   |   ├──''''
+├── nuscenes_front_infos_val_mono3d.coco.json
+├── nuscenes_front_infos_train.pkl
+├── nuscenes_front_infos_train_mono3d.coco.json
+├── nuscenes_front_infos_val.pkl
+```
 ## Citation
 
 If you find this project useful in your research, please consider citing:
