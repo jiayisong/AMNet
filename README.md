@@ -29,14 +29,14 @@ cd mmdetection3d
 pip install -v -e .  # or "python setup.py develop"
 ```
 ## Dataset Download
-### Image files
+### KITTI
 Download images from the [kitti](https://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d), including 
 *Download left color images of object data set (12 GB)*
 and
 *Download right color images, if you want to use stereo information (12 GB)*.
-### label files
-The labeled files need to be converted, and for convenience I uploaded the converted files directly. They are [kitti_label.zip]([https://drive.google.com/file/d/17O_z-XXaxNZN-jxJn3OD9nkOZV29jtNg/view?usp=sharing](https://drive.google.com/file/d/1B0v6gn00houqtYUqlSdpK2MQEZQQhqBT/view?usp=sharing)).
-### Unzip
+
+The labeled files need to be converted, and for convenience I uploaded the converted files directly. It is [kitti_label.zip](https://drive.google.com/file/d/1B0v6gn00houqtYUqlSdpK2MQEZQQhqBT/view?usp=sharing).
+
 Unzip the image file and organize it and the label file as follows.
 ```
 kitti
@@ -59,8 +59,10 @@ kitti
 ├── kitti_infos_trainval_mono3d.coco.json
 ├── kitti_infos_val_mono3d.coco.json
 ```
-未完待续
+### NuScenes
+Download images from the [NuScenes](https://www.nuscenes.org/nuscenes#download).
 
+In our experiment, we used images from the FRONT CAMERA, and we provided the corresponding labels for the forward-facing camera. It is [nuscenes_label.zip](https://drive.google.com/file/d/13tcu7hKZ9gMti-Jkb3hrTMbxrVw01753/view?usp=sharing)
 ## Citation
 
 If you find this project useful in your research, please consider citing:
