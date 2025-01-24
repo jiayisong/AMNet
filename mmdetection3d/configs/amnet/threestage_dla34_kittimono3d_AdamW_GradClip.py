@@ -2,10 +2,10 @@ _base_ = [
     '../_base_/datasets/kitti-mono3d.py',
     '../_base_/default_runtime.py', '../_base_/schedules/mmdet_schedule_1x.py'
 ]
-work_dir = '/mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_50000/'
+work_dir = '/usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_inf/'
 #resume_from2 = '/mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_50000/latest.pth'
 resume_from2 = None
-gpu_ids = [0]
+gpu_ids = [3]
 # fp16 = dict(loss_scale=dict(init_scale=2. ** 9, growth_factor=2.0, backoff_factor=0.5, growth_interval=500, ))
 # cumulative_gradient = dict(cumulative_iters=10)
 find_unused_parameters = True
@@ -23,7 +23,7 @@ optimizer_config = dict(_delete_=True,
                         # type="GradientCumulativeOptimizerHook", cumulative_iters=16,
                         grad_clip=dict(
                           #  type='my_clip_grads',
-                            max_norm=50000, norm_type=2))
+                            max_norm='inf', norm_type=2))
 # optimizer_config = dict(grad_clip=None)
 optimizer = dict(_delete_=True,
                  # type='SGD', lr=1e-4, momentum=0.9, weight_decay=5e-4,  # nesterov=True,
@@ -254,7 +254,7 @@ model = dict(
                 # 'd_score',
                 # 'corner_2d',
                 #  'corner',
-                'union',
+                'union_corner',
             ],
             train_cfg=dict(
                 # min_iou=0.,

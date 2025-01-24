@@ -132,7 +132,7 @@ class BBox3DHead(BaseModule):
             self.pred_corner = True
             self.pred_union_corner = True
             self.pred_union_center = False
-        if 'union_center' in pred:
+        elif 'union_center' in pred:
             self.pred_d = True
             self.pred_uv = True
             self.pred_lhw = True

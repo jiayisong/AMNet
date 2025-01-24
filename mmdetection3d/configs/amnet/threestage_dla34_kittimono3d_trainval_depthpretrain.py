@@ -2,8 +2,8 @@ _base_ = [
     '../_base_/datasets/kitti-mono3d.py',
     '../_base_/default_runtime.py', '../_base_/schedules/mmdet_schedule_1x.py'
 ]
-work_dir = '/mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_trainval_depthpretrain/'
-#resume_from2 = '/mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_trainval_depthpretrain/epoch_75.pth'
+work_dir = '/usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_trainval_depthpretrain/'
+# resume_from2 = '/usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_trainval_depthpretrain/epoch_79.pth'
 resume_from2 = None
 gpu_ids = [1]
 # fp16 = dict(loss_scale=dict(init_scale=2. ** 9, growth_factor=2.0, backoff_factor=0.5, growth_interval=500, ))
@@ -12,10 +12,10 @@ find_unused_parameters = True
 custom_hooks = [dict(type='EpochFuseHook', first_val=False, priority='VERY_LOW'),
                 dict(type='MyLinearMomentumEMAHook', resume_from=resume_from2, warm_up=1, momentum=0.001, priority=49)
                 ]
-evaluation = dict(interval=5, dynamic_intervals=[(90, 1), ],
+evaluation = dict(interval=120, dynamic_intervals=[(190, 1), ],
                   save_best="img_bbox/Moderate@0.7@Car@R40@AP3D", rule='greater'
                   )
-checkpoint_config = dict(interval=1, max_keep_ckpts=-1)
+checkpoint_config = dict(interval=5, max_keep_ckpts=1)
 log_config = dict(interval=5, hooks=[dict(type='TextLoggerHook'),
                                      dict(type='TensorboardLoggerHook')
                                      ])
@@ -99,7 +99,7 @@ model = dict(
     # backbone=dict(type='Darknet', depth=53, norm_eval=False, out_indices=(1, 2, 3, 4, 5), init_cfg=dict(type='Pretrained', checkpoint='open-mmlab://darknet53')),
     backbone=dict(type='DLANet', depth=34, out_indices=(3, 4, 5), norm_cfg=norm_cfg,
                   init_cfg=dict(type='Pretrained',
-                                checkpoint='/home/jys/mmdetection3d/work_dirs/pretrained_model/dla34-depth_pretrained.pth')),
+                                checkpoint='/usr/jys/mmdetection3d/work_dirs/pretrained_model/dla34-depth_pretrained.pth')),
     # neck=dict(type='MyFPNNeck', out_channels=NECK_OUT_CHANNEL),
     # neck=dict(type='MyDLANeck2'),
     # neck=dict(type='MyDLANeck'),
@@ -252,7 +252,7 @@ model = dict(
                 # 'd_score',
                 # 'corner_2d',
                 #  'corner',
-                'union',
+                'union_corner',
             ],
             train_cfg=dict(
                 # min_iou=0.,
@@ -339,11 +339,11 @@ test_pipeline = [
                        ], meta_keys=['box_type_3d', 'flip', 'filename', 'cam2img_ori', ])
         ])
 ]
-data_root = '/home/jys/DataSets/kitti/'
+data_root = '/usr/jys/DataSets/kitti/'
 data = dict(
     samples_per_gpu=8, workers_per_gpu=4,
     train=dict(pipeline=train_pipeline, classes=CLASS_NAMES,
-               ann_file=data_root + 'kitti_infos_trainval_mono3d.coco.json',
-        info_file=data_root + 'kitti_infos_trainval.pkl',),
+               ann_file=data_root + 'old/kitti_infos_trainval_mono3d.coco.json',
+        info_file=data_root + 'old/kitti_infos_trainval.pkl',),
     val=dict(pipeline=test_pipeline, classes=CLASS_NAMES, samples_per_gpu=8, gpu_ids=gpu_ids),
     test=dict(pipeline=test_pipeline, classes=CLASS_NAMES, samples_per_gpu=8, gpu_ids=gpu_ids))

@@ -2,14 +2,14 @@ _base_ = [
     '../_base_/datasets/kitti-mono3d.py',
     '../_base_/default_runtime.py', '../_base_/schedules/mmdet_schedule_1x.py'
 ]
-work_dir = '/mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_Switch_corner/'
-resume_from2 = '/mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_Switch_corner/latest.pth'
-#resume_from2 = None
-gpu_ids = [1]
+work_dir = '/usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_Switch_corner/'
+#resume_from2 = '/mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_Switch_corner/latest.pth'
+resume_from2 = None
+gpu_ids = [4]
 # fp16 = dict(loss_scale=dict(init_scale=2. ** 9, growth_factor=2.0, backoff_factor=0.5, growth_interval=500, ))
 # cumulative_gradient = dict(cumulative_iters=10)
 find_unused_parameters = True
-custom_hooks = [dict(type='EpochFuseHook', first_val=True, priority='VERY_LOW'),
+custom_hooks = [dict(type='EpochFuseHook', first_val=False, priority='VERY_LOW'),
                 dict(type='MyLinearMomentumEMAHook', resume_from=resume_from2, warm_up=1, momentum=0.001, priority=49)
                 ]
 evaluation = dict(interval=5, dynamic_intervals=[(90, 1), ],
