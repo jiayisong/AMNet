@@ -92,6 +92,7 @@ Similar to mmdetection3d, validating with the following command.
 ```shell
 python tools/test.py configs/amnet/threestage_dla34_kittimono3d.py /usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_20.98/best_img_bbox/Moderate@0.7@Car@R40@AP3D_epoch_99.pth --eval bbox
 ```
+The model I trained is given here. The evaluation metrics are IOU=0.7, R40, AP_3D/AP_BEV on the validation set.
 | Dataset |  AM      | DDAD15M | Flip Test   | Easy           | Mod.           | Hard           |  Config  |  Download  |
 |---------|----------|------|----------------|----------------|----------------|------|------|------|
 | NuScenes |        |      |      |  11.23/19.08 | 8.42/14.78 | 7.46/13.17        | [config](mmdetection3d/configs/amnet/threestage_dla34_nusmono3d_2.py) | [model](https://drive.google.com/file/d/1EYKW0n-jJXOA3fnK41KPot6Dypno7SRX/view?usp=sharing) \| [log](https://drive.google.com/file/d/1vIGhBquIMzutLL8vZ064AJkCWvLZm2Kh/view?usp=sharing) |
@@ -103,6 +104,11 @@ Similar to mmdetection3d, testing with the following command.
 python tools/test.py configs/amnet/threestage_dla34_kittimono3d_trainval.py /mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_trainval/epoch_80.pth --format-only --eval-options 'submission_prefix=results/kitti-3class/kitti_results'
 ```
 When the test is complete, a number of txt files of the results are generated in *results/kitti-3class/kitti_results*. Then compressed into a zip it can be uploaded to the official [kitti server](https://www.cvlibs.net/datasets/kitti/user_submit.php).
+The model I trained is given here. The evaluation metrics are IOU=0.7, R40, AP_3D/AP_BEV on the test set.
+| Dataset |  AM      | DDAD15M | Flip Test   | Easy           | Mod.           | Hard           |  Config  |  Download  |
+|---------|----------|------|----------------|----------------|----------------|------|------|------|
+| KITTI | ✓ |    | ✓  |  26.09/34.71 | 	18.36/24.84 | 	15.86/22.14   | [config](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_trainval.py) | [model](https://drive.google.com/file/d/1CaRq-eMQbxtjDDWTqx-5pQELtm2hOkWN/view?usp=sharing) \| [log](https://drive.google.com/file/d/1zq7CRJxQZzJIh6oWGAkOPCMiCGQMOLPy/view?usp=sharing) |
+| KITTI | ✓  | ✓  | ✓ | 	26.26/34.68 |	19.26/25.40 |	17.05/22.85    | [config](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_trainval_depthpretrain.py) | [model](https://drive.google.com/file/d/1rUJOEYSOMp5gn9dlP6pqWUfVOnf2i_vY/view?usp=sharing) \| [log](https://drive.google.com/file/d/1Mj-A-FG27r2eB-7Zk17N4wSaqPpt2GJL/view?usp=sharing) |
 ## Citation
 
 If you find this project useful in your research, please consider citing:
