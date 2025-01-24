@@ -59,6 +59,7 @@ kitti
 ├── kitti_infos_trainval_mono3d.coco.json
 ├── kitti_infos_val_mono3d.coco.json
 ```
+Modify the configuration files appropriately based on the dataset location. They are [kitti-mono3d.py](mmdetection3d/configs/_base_/datasets/kitti-mono3d.py#L3), [threestage_dla34_kittimono3d_trainval.py](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_trainval.py#L342), and [threestage_dla34_kittimono3d_trainval_depthpretrain.py](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_trainval_depthpretrain.py#L342).
 ### NuScenes
 Download images from the [NuScenes](https://www.nuscenes.org/nuscenes#download).
 
@@ -77,9 +78,10 @@ nuscenes
 ├── nuscenes_front_infos_train_mono3d.coco.json
 ├── nuscenes_front_infos_val.pkl
 ```
+Modify the configuration file appropriately based on the dataset location. It is [nus-front-mono3d.py](mmdetection3d/configs/_base_/datasets/nus-front-mono3d.py#L3).
 ## Pre-training Model Download
 [DLA34-DDAD15M](https://drive.google.com/file/d/1qxRunmEnAUojZL2Ys9NQGNVCBWTI6X8Z/view?usp=sharing) is the pre-trained weights converted from [DD3D](https://github.com/TRI-ML/dd3d).
-
+Modify the configuration files appropriately based on the dataset location. It is [threestage_dla34_kittimono3d_trainval_depthpretrain.py](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_trainval_depthpretrain.py#L102).
 ## Model Training
 Similar to mmdetection3d, train with the following command.
 ```shell
@@ -93,7 +95,7 @@ python tools/test.py configs/amnet/threestage_dla34_kittimono3d.py /usr/jys/mmde
 | Dataset |  AM      | DDAD15M | Flip Test   | Easy           | Mod.           | Hard           |  Config  |  Download  |
 |---------|----------|------|----------------|----------------|----------------|------|------|------|
 | NuScenes |        |      |      |  11.23/19.08 | 8.42/14.78 | 7.46/13.17        | [config](mmdetection3d/configs/amnet/threestage_dla34_nusmono3d_2.py) | [model](https://drive.google.com/file/d/1EYKW0n-jJXOA3fnK41KPot6Dypno7SRX/view?usp=sharing) \| [log](https://drive.google.com/file/d/1vIGhBquIMzutLL8vZ064AJkCWvLZm2Kh/view?usp=sharing) |
-| NuScenes    | ✓     |     |     | 18.47/28.09 |  14.47/22.43  | 12.67/20.18     | [config](mmdetection3d/configs/amnet/threestage_dla34_nusmono3d.py) | [model](https://drive.google.com/file/d/1-A0llZuwLuW5GtLQWu98RCYM__bHauBA/view?usp=sharing) \| [log](https://drive.google.com/file/d/1nWb03d7Bc2HmLdbxF7Aoa914S3zx8EmQ/view?usp=sharing) |
+| NuScenes    | ✓     |     |     | 18.65/26.77 |  14.41/21.52  | 12.74/19.44     | [config](mmdetection3d/configs/amnet/threestage_dla34_nusmono3d.py) | [model](https://drive.google.com/file/d/1EUuccLiNhGufUhmNuWMPne9rmWgjqSKF/view?usp=sharing) \| [log](https://drive.google.com/file/d/1a3L56n93QLBy7fTsr9ZGShRqOlDi1YdJ/view?usp=sharing) |
 
 ## Model Testing
 Similar to mmdetection3d, testing with the following command. 
