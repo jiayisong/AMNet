@@ -81,7 +81,7 @@ nuscenes
 Modify the configuration file appropriately based on the dataset location. It is [nus-front-mono3d.py](mmdetection3d/configs/_base_/datasets/nus-front-mono3d.py#L3).
 ## Pre-training Model Download
 [DLA34-DDAD15M](https://drive.google.com/file/d/1qxRunmEnAUojZL2Ys9NQGNVCBWTI6X8Z/view?usp=sharing) is the pre-trained weights converted from [DD3D](https://github.com/TRI-ML/dd3d).
-Modify the configuration files appropriately based on the dataset location. It is [threestage_dla34_kittimono3d_trainval_depthpretrain.py](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_trainval_depthpretrain.py#L102).
+Modify the configuration files appropriately based on the pre-training model location. It is [threestage_dla34_kittimono3d_trainval_depthpretrain.py](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_trainval_depthpretrain.py#L102).
 ## Model Training
 Similar to mmdetection3d, train with the following command.
 ```shell
