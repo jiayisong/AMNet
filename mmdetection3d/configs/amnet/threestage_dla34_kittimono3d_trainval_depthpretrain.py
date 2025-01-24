@@ -343,7 +343,7 @@ data_root = '/usr/jys/DataSets/kitti/'
 data = dict(
     samples_per_gpu=8, workers_per_gpu=4,
     train=dict(pipeline=train_pipeline, classes=CLASS_NAMES,
-               ann_file=data_root + 'old/kitti_infos_trainval_mono3d.coco.json',
-        info_file=data_root + 'old/kitti_infos_trainval.pkl',),
+               ann_file=data_root + 'kitti_infos_trainval_mono3d.coco.json',
+        info_file=data_root + 'kitti_infos_trainval.pkl',),
     val=dict(pipeline=test_pipeline, classes=CLASS_NAMES, samples_per_gpu=8, gpu_ids=gpu_ids),
     test=dict(pipeline=test_pipeline, classes=CLASS_NAMES, samples_per_gpu=8, gpu_ids=gpu_ids))
