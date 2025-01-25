@@ -100,7 +100,7 @@ The model I trained is given here. The evaluation metrics are IOU=0.7, R40, AP_3
 | KITTI |        |      |      |  22.74/14.86  | 16.39/10.78  | 14.68/9.57        | [config](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_baseline.py) | [model](https://drive.google.com/file/d/1Pyx0cPRpVcadG_dB0_LEea6tCH-YjzCP/view?usp=sharing) \| [log](https://drive.google.com/file/d/1DErmz3bqIweQ9yeR7ua4ZsJmdCv1DoT4/view?usp=sharing) |
 | KITTI    | ✓     |     |     | 39.10/28.04 |28.65/20.98| 25.64/18.55    | [config](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d.py) | [model](https://drive.google.com/file/d/1Vpp0VkNTeWeSWa-Z7E6wlYTjKadi1Eqo/view?usp=sharing) \| [log](https://drive.google.com/file/d/1L1J_Wp18ITE1RJ1jEEnmCiLPpt2n1i1d/view?usp=sharing) |
 | KITTI |   ✓    |   ✓ |      | 39.60/30.99| 29.27/22.64 | 26.30/19.69        | [config](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_depthpretrain.py) | [model](https://drive.google.com/file/d/155RJL2zYixjMgZi2l4aygjR8es7lGTTi/view?usp=sharing) \| [log](https://drive.google.com/file/d/17RulgtvX4GV56cojj33HBcPs7EQBgK5Q/view?usp=sharing) |
-| KITTI    | ✓     | ✓  |  ✓  | 40.67/31.60 |  30.67/ 23.55 | 27.49/20.76    | Ditto | Ditto | Ditto |
+| KITTI    | ✓     | ✓  |  ✓  | 40.67/31.60 |  30.67/23.55 | 27.49/20.76    | Ditto | Ditto | Ditto |
 ## Model Testing
 Similar to mmdetection3d, testing with the following command. 
 ```shell
