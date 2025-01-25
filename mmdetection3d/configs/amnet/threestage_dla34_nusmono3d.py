@@ -2,7 +2,7 @@ _base_ = [
     '../_base_/datasets/nus-front-mono3d.py',
     '../_base_/default_runtime.py', '../_base_/schedules/mmdet_schedule_1x.py'
 ]
-work_dir = '/usr/jys/mmdetection3d/work_dirs/threestage_dla34_nusmono3d_1/'
+work_dir = '/usr/jys/mmdetection3d/work_dirs/threestage_dla34_nusmono3d/'
 # resume_from2 = '/usr/jys/mmdetection3d/work_dirs/threestage_dla34_nusmono3d_1/latest.pth'
 resume_from2 = None
 gpu_ids = [6]
