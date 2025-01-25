@@ -325,7 +325,7 @@ test_pipeline = [
     dict(
         type='MultiScaleFlipAug',
         img_scale=IMG_SIZE[::-1],
-        flip=False,
+        flip=True,
         transforms=[
             dict(type='LoadImageFromFileMono3D', to_float32=True),
             # dict(type='Bbox3dTo2d'),
