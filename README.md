@@ -25,6 +25,7 @@ cd mmdetection
 pip install -r requirements/build.txt
 pip install -v -e .  # or "python setup.py develop"
 pip install mmsegmentation==0.14.1
+cd ..
 cd mmdetection3d
 pip install -v -e .  # or "python setup.py develop"
 ```
@@ -83,12 +84,12 @@ Modify the configuration file appropriately based on the dataset location. It is
 [DLA34-DDAD15M](https://drive.google.com/file/d/1qxRunmEnAUojZL2Ys9NQGNVCBWTI6X8Z/view?usp=sharing) is the pre-trained weights converted from [DD3D](https://github.com/TRI-ML/dd3d).
 Modify the configuration files appropriately based on the pre-training model location. They are [threestage_dla34_kittimono3d_trainval_depthpretrain.py](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_trainval_depthpretrain.py#L102), [threestage_dla34_nusmono3d_depthpretrain.py](mmdetection3d/configs/amnet/threestage_dla34_nusmono3d_depthpretrain.py#L106), [threestage_dla34_nusmono3d_depthpretrain_flip.py](mmdetection3d/configs/amnet/threestage_dla34_nusmono3d_depthpretrain_flip.py#L106), [threestage_dla34_kittimono3d_depthpretrain.py](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_depthpretrain.py#L106), and [threestage_dla34_kittimono3d_depthpretrain_flip.py](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_depthpretrain_flip.py#L106).
 ## Model Training
-Similar to mmdetection3d, train with the following command.
+Similar to mmdetection3d, train with the following command. Navigate to the AMNet/mmdetection3d directory.
 ```shell
 python tools/train.py --config configs/amnet/threestage_dla34_kittimono3d.py
 ```
 ## Model Validating
-Similar to mmdetection3d, validating with the following command. 
+Similar to mmdetection3d, validating with the following command. Navigate to the AMNet/mmdetection3d directory.
 ```shell
 python tools/test.py configs/amnet/threestage_dla34_kittimono3d.py /usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_20.98/best_img_bbox/Moderate@0.7@Car@R40@AP3D_epoch_99.pth --eval bbox
 ```
