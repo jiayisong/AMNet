@@ -24,7 +24,7 @@ cd ..
 cd mmdetection
 pip install -r requirements/build.txt
 pip install -v -e .  # or "python setup.py develop"
-pip install mmsegmentation==0.14.1
+pip install mmsegmentation==0.20.0
 cd ..
 cd mmdetection3d
 pip install -v -e .  # or "python setup.py develop"
