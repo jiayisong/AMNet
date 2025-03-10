@@ -2,3 +2,4 @@
 cython
 numpy
 yapf==0.32.0
+setuptools==57.4.0
