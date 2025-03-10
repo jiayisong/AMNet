@@ -19,7 +19,7 @@ pip install torch==1.10.0+cu102 torchvision==0.11.0+cu102 -f https://download.py
 git clone https://github.com/jiayisong/AMNet.git
 cd AMNet
 cd mmcv-1.4.0
-MMCV_WITH_OPS=1 pip install -e .  # it is very slow
+MMCV_WITH_OPS=1 pip install -e .  # It is very slow，installing ninja will be faster.
 cd ..
 cd mmdetection
 pip install -r requirements/build.txt
