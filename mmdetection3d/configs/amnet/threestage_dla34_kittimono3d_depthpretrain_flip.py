@@ -2,7 +2,7 @@ _base_ = [
     '../_base_/datasets/kitti-mono3d.py',
     '../_base_/default_runtime.py', '../_base_/schedules/mmdet_schedule_1x.py'
 ]
-work_dir = '/usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_depthpretrain/'
+work_dir = './work_dirs/threestage_dla34_kittimono3d_depthpretrain/'
 # resume_from2 = '/home/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_533/best_img_bbox/Moderate@0.7@Car@R40@AP3D_epoch_99.pth'
 resume_from2 = None
 gpu_ids = [0]

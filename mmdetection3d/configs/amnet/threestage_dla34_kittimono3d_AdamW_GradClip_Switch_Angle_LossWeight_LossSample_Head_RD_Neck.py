@@ -2,7 +2,7 @@ _base_ = [
     '../_base_/datasets/kitti-mono3d.py',
     '../_base_/default_runtime.py', '../_base_/schedules/mmdet_schedule_1x.py'
 ]
-work_dir = '/mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_Switch_Angle_LossWeight_LossSample_Head_RD_Neck_bilinear/'
+work_dir = './work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_Switch_Angle_LossWeight_LossSample_Head_RD_Neck_bilinear/'
 #resume_from2 = '/mnt/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_AdamW_CradClip_Switch_Angle_LossWeight_LossSample/latest.pth'
 resume_from2 = None
 gpu_ids = [0]
