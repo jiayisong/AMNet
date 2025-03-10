@@ -5,7 +5,7 @@ _base_ = [
 work_dir = './work_dirs/threestage_dla34_kittimono3d/'
 # resume_from2 = '/home/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_533/best_img_bbox/Moderate@0.7@Car@R40@AP3D_epoch_99.pth'
 resume_from2 = None
-gpu_ids = [5]
+gpu_ids = [0]
 # fp16 = dict(loss_scale=dict(init_scale=2. ** 9, growth_factor=2.0, backoff_factor=0.5, growth_interval=500, ))
 # cumulative_gradient = dict(cumulative_iters=10)
 find_unused_parameters = True
