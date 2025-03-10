@@ -18,7 +18,7 @@ pip install torch==1.10.0+cu102 torchvision==0.11.0+cu102 -f https://download.py
 ```shell
 git clone https://github.com/jiayisong/AMNet.git
 cd AMNet
-cd mmcv
+cd mmcv-1.4.0
 MMCV_WITH_OPS=1 pip install -e .  # 安装好 mmcv-full
 cd ..
 cd mmdetection
