@@ -1,3 +1,4 @@
 # These must be installed before building mmdetection
 cython
 numpy
+yapf==0.32.0
