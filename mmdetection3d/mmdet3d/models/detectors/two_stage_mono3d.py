@@ -246,8 +246,8 @@ class TwoStageMono3DDetector(TwoStageDetector):
             assert out_dir is not None, 'Expect out_dir, got none.'
 
             pred_bboxes = result[batch_id]['img_bbox']['boxes_3d']
-            if 'gt_bboxes_3d' in data:
-                gt_bboxes = data['gt_bboxes_3d'][0]._data[0][batch_id]
+            if 'gt_bboxes_3d' in data['img_metas'][0]._data[0][batch_id]:
+                gt_bboxes = data['img_metas'][0]._data[0][batch_id]['gt_bboxes_3d']
                 assert isinstance(gt_bboxes, CameraInstance3DBoxes), \
                     f'unsupported predicted bbox type {type(gt_bboxes)}'
             else:
