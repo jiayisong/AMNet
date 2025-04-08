@@ -105,6 +105,48 @@ The model I trained is given here. The evaluation metrics are IOU=0.7, R40, AP_3
 | KITTI    | ✓     |     |     | 28.04/39.10 |20.98/28.65 | 18.55/25.64    | [config](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d.py) | [model](https://drive.google.com/file/d/1Vpp0VkNTeWeSWa-Z7E6wlYTjKadi1Eqo/view?usp=sharing) \| [log](https://drive.google.com/file/d/1L1J_Wp18ITE1RJ1jEEnmCiLPpt2n1i1d/view?usp=sharing) |
 | KITTI |   ✓    |   ✓ |      | 30.99/39.60| 22.64/29.27 | 19.69/26.30        | [config](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_depthpretrain.py) | [model](https://drive.google.com/file/d/155RJL2zYixjMgZi2l4aygjR8es7lGTTi/view?usp=sharing) \| [log](https://drive.google.com/file/d/17RulgtvX4GV56cojj33HBcPs7EQBgK5Q/view?usp=sharing) |
 | KITTI    | ✓     | ✓  |  ✓  | 31.60/40.67 |  23.55/30.67 | 20.76/27.49    | [config](mmdetection3d/configs/amnet/threestage_dla34_kittimono3d_depthpretrain_flip.py) | Ditto | Ditto |
+## Result Visualization
+Similar to mmdetection3d, result visualization is with the following command. Navigate to the AMNet/mmdetection3d directory.
+```shell
+python tools/test.py configs/amnet/threestage_dla34_kittimono3d.py /usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_20.98/best_img_bbox/Moderate@0.7@Car@R40@AP3D_epoch_99.pth --eval bbox --show-dir work_dirs/threestage_dla34_nusmono3d/vis/ --show-score-thr 0.3
+```
+The visualization results will be generated in a folder. By default, only the predicted results are displayed. If you want to visualize both the ground truth and the predictions simultaneously, you need to add a process to read the ground truth in the data reading workflow of the configuration file. Below is an example.
+```python
+test_pipeline = [
+    # dict(type='LoadImageFromFileMono3D', to_float32=True),
+    # dict(type='LoadAnnotations3D', with_bbox=True, with_label=True, with_attr_label=False, with_bbox_3d=True,  with_label_3d=True, with_bbox_depth=True),
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=IMG_SIZE[::-1],
+        flip=False,
+        transforms=[
+            dict(type='LoadImageFromFileMono3D', to_float32=True),
+            dict(type='LoadAnnotations3D', with_bbox=True, with_label=True, with_attr_label=False, with_bbox_3d=True,
+                 with_label_3d=True, with_bbox_depth=True),
+            dict(type='RandomFlip3D'),
+            dict(type='Normalize', **img_norm_cfg),
+            dict(type='Init'),
+            dict(type='UnifiedIntrinsics', size=IMG_SIZE,
+                 intrinsics=((721.5377, 0.0, 471), (0.0, 721.5377, 274), (0.0, 0.0, 1.0))),
+            dict(type='Pad', size=IMG_SIZE),
+            dict(type='Img2Cam'),
+            # dict(type='Bbox8dtoXyzxyz'),
+            # dict(type='MakeHeatMap3dTwoStage', size=IMG_SIZE, label_num=NUM_CLASS,, max_num_pre_img=MAX_NUM_PRE_IMG, down_factor=DOWN_STRIDE,  kernel_size=0.15, size_distribution=(1280000,), train_without_ignore=True,train_without_outbound=False,train_without_small=(8, 8),base_depth=BASE_DEPTH, base_dims=base_dims, ),
+            dict(type='ImageToTensor', keys=['img']),
+            dict(type='Collect',
+                 keys=['img', 'img2cam', 'cam2img', 'K_out', 'xy_max', 'xy_min',
+                       'pad_bias', 'scale_factor',
+                       # 'center_heatmap_pos', 'center_heatmap_neg', 'size_heatmap', 'lhw_heatmap', 'uv_heatmap','index_heatmap', 'cls_heatmap_pos', 'cls_heatmap_neg', 'sincos_heatmap', 'd_heatmap','size_mask', 'bbox2d_heatmap', 'alpha_4bin_heatmap',
+                       ], meta_keys=['box_type_3d', 'flip', 'filename', 'cam2img_ori',  'gt_bboxes_3d'])
+        ])
+]
+
+data = dict(
+    samples_per_gpu=8, workers_per_gpu=4,
+    train=dict(pipeline=train_pipeline, classes=CLASS_NAMES, ),
+    val=dict(pipeline=test_pipeline, test_mode=False, classes=CLASS_NAMES, samples_per_gpu=8, gpu_ids=gpu_ids),
+    test=dict(pipeline=test_pipeline, classes=CLASS_NAMES, samples_per_gpu=8, gpu_ids=gpu_ids))
+```
 ## Model Testing
 Similar to mmdetection3d, testing with the following command. 
 ```shell
