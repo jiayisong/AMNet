@@ -110,7 +110,7 @@ Similar to mmdetection3d, result visualization is with the following command. Na
 ```shell
 python tools/test.py configs/amnet/threestage_dla34_kittimono3d.py /usr/jys/mmdetection3d/work_dirs/threestage_dla34_kittimono3d_20.98/best_img_bbox/Moderate@0.7@Car@R40@AP3D_epoch_99.pth --eval bbox --show-dir work_dirs/threestage_dla34_nusmono3d/vis/ --show-score-thr 0.3
 ```
-The visualization results will be generated in a folder. By default, only the predicted results are displayed. If you want to visualize both the ground truth and the predictions simultaneously, you need to add a process to read the ground truth in the data reading workflow of the configuration file. Below is an example.
+The visualization results will be generated in the folder. By default, only the predicted results are displayed. If you want to visualize both the ground truth and the predictions simultaneously, you need to add a process to read the ground truth in the data reading workflow of the configuration file. Below is an example.
 ```python
 test_pipeline = [
     # dict(type='LoadImageFromFileMono3D', to_float32=True),
