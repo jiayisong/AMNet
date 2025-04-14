@@ -169,11 +169,10 @@ If you find this project useful in your research, please consider citing:
   journal={IEEE Transactions on Intelligent Transportation Systems}, 
   title={MonoAMNet: Three-Stage Real-Time Monocular 3D Object Detection With Adaptive Methods}, 
   year={2025},
-  volume={},
-  number={},
-  pages={1-14},
-  keywords={Monocular 3D object detection;deep learning;autonomous driving;optimizer},
-  doi={10.1109/TITS.2025.3525772}
-}
+  volume={26},
+  number={3},
+  pages={3574-3587},
+  keywords={Three-dimensional displays;Object detection;Head;Detectors;Neck;Training;Feature extraction;Depth measurement;Convolution;Autonomous vehicles;Monocular 3D object detection;deep learning;autonomous driving;optimizer},
+  doi={10.1109/TITS.2025.3525772}}
 ```
 
